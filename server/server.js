@@ -12,9 +12,25 @@
   const app = express();
   app.use(cookieParser());
   // Middleware
-  app.use(cors({
-  origin: 'http://localhost:5173', // 👈 Aap ke React Vite app ka exact URL (trailing slash ke bina)
-  credentials: true,               // 👈 IMPORTANT: Yeh true hoga tabhi JWT cookies exchange hongi!
+// CORS Configuration for Local & Vercel Production
+const allowedOrigins = [
+  'http://localhost:5173',
+  process.env.FRONTEND_URL // Agar custom domain hua toh yahan aayega
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    // Postman ya server-to-server requests ke liye jahan origin nahi hota
+    if (!origin) return callback(null, true);
+    
+    // Agar request localhost se ho ya kisi bhi vercel.app domain se ho
+    if (allowedOrigins.indexOf(origin) !== -1 || origin.endsWith('.vercel.app')) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,             // 👈 IMPORTANT: Cookie / Token exchange ke liye
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
 }));
   app.use(express.json());
