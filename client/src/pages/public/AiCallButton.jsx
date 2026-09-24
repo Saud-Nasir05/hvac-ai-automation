@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Vapi from '@vapi-ai/web';
 
-const VAPI_PUBLIC_KEY = "2c94d1cd-5f3c-4d2e-84a9-d0c260bb8131";
-const ASSISTANT_ID = "a6d61f7c-724f-4e17-9e6b-b0c89d360897";
+const VAPI_PUBLIC_KEY = "3a92dfe8-f163-4961-a00e-3160598df295";
+const ASSISTANT_ID = "b2537efd-670f-4228-9ade-7f7e5d01a414";
 
 export default function AiCallButton() {
   const [callStatus, setCallStatus] = useState('inactive');
