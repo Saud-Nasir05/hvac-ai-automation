@@ -88,7 +88,7 @@ export const startCronJobs = () => {
                 if (diffMinutes >= 1 && !appt.review_sent) {
                     console.log(`💬 Sending Customized Review Ask to \({name} for issue: "\){issue}"`);
                     
-                   const reviewMsg = `Hello ${name}! 🛠️\n\nOur technician recently resolved your HVAC issue regarding: *"${issue}"*. We hope everything is working perfectly now!\n\n${careTip}\n\n🌟 *Did you like our service?* Please reply with a 5-STAR rating (⭐⭐⭐⭐⭐) or tell us how we can improve. Your feedback means the world to us!`;
+                   const reviewMsg = `Hello  🛠️\n\nOur technician recently resolved your HVAC issue . We hope everything is working perfectly now!\n\n${careTip}\n\n🌟 *Did you like our service?* Please reply with a 5-STAR rating (⭐⭐⭐⭐⭐) or tell us how we can improve. Your feedback means the world to us!`;
                     await sendWhatsAppMsg(phone, reviewMsg);
                     await supabase.from('appointments').update({ review_sent: true }).eq('id', appt.id);
                 }
@@ -99,7 +99,7 @@ export const startCronJobs = () => {
                     const scheduleStatus = await checkFreeSlots(appt.vendor_id || "4c3d0f01-7bd2-4bcd-9130-3752cb68cf7e");
                     const threeSlots = getThreeFreeSlots(scheduleStatus);
                     
-const maintenanceMsg = `Hi ${name}! ⏳\n\nIt feels like a month has already passed since we fixed your AC! Regular maintenance checks can save you up to 50% on major repair costs and keep your cooling bills low.\n\n📅 *We checked our technician's live availability for tomorrow and have these FREE slots:* \n👉 *[ ${threeSlots} ]*\n\nWould you like me to lock in a routine inspection slot for you right now? Just reply with your preferred time (e.g. *"Book 11:30 AM"*) or call us anytime!`
+const maintenanceMsg = `Hi It feels like a month has already passed since we fixed your AC! Regular maintenance checks can save you up to 50% on major repair costs and keep your cooling bills low.\n\n📅 *We checked our technician's live availability for tomorrow and have these FREE slots:* \n👉 *[ ${threeSlots} ]*\n\nWould you like me to lock in a routine inspection slot for you right now? Just reply with your preferred time (e.g. *"Book 11:30 AM"*) or call us anytime!`
                     
                     await sendWhatsAppMsg(phone, maintenanceMsg);
                     await supabase.from('appointments').update({ maintenance_sent: true }).eq('id', appt.id);
