@@ -3,7 +3,7 @@ import supabase from '../db/supabase.js';
 // 1. Fetch 4 Core Dashboard Metrics
 export const getDashboardStats = async (req, res) => {
     try {
-        const { vendorId } = req.query; // Frontend se aayega: /api/dashboard/stats?vendorId=...
+        const  vendorId =4c3d0f01-7bd2-4bcd-9130-3752cb68cf7e; 
 
         if (!vendorId) {
             return res.status(400).json({ success: false, error: "Vendor ID is required" });
