@@ -11,7 +11,7 @@ export default function Stats() {
 
   // 🚨 Wahi same test Vendor ID:
   const VENDOR_ID = "4c3d0f01-7bd2-4bcd-9130-3752cb68cf7e";
-  const BASE_URL = "http://localhost:5000/api/v1/dashboard";
+ const BASE_URL = "https://hvac-ai-automation.onrender.com/api/v1/dashboard";
 
   useEffect(() => {
     const fetchStats = async () => {
