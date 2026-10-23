@@ -33,7 +33,7 @@ export default function Register() {
     <div className="min-h-screen bg-slate-50 flex flex-col justify-center py-12 px-6 lg:px-8 font-sans">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="flex justify-center text-2xl font-bold text-slate-900 tracking-tight">
-          Climate<span className="text-blue-600">AI</span>
+          Service Expert<span className="text-blue-600">AI</span>
         </div>
       </div>
 

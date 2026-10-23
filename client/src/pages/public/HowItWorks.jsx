@@ -28,7 +28,7 @@ export default function HowItWorks() {
         {/* Section Heading */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mb-4">
-            How <span className="text-blue-600">ClimateAI</span> Works
+            How <span className="text-blue-600">Service Expert AI</span> Works
           </h2>
           <p className="text-slate-600 text-base sm:text-lg">
             No human dispatchers. No callbacks. We turned the traditional HVAC booking process into a seamless 4-step automated workflow.

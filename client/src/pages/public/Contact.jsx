@@ -7,7 +7,7 @@ export default function Contact() {
   const [chatInput, setChatInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState([
-    { sender: 'ai', text: "Hello! I'm the ClimateAI dispatcher. What HVAC issue are you experiencing today?" }
+    { sender: 'ai', text: "Hello! I'm the Service Expert AI dispatcher. What HVAC issue are you experiencing today?" }
   ]);
 
   // 🔥 THE REAL AUTOMATION LOOP (Connected to Node.js & Gemini)
@@ -92,7 +92,7 @@ export default function Contact() {
             <div className="bg-slate-700 px-6 py-4 flex items-center justify-between text-white">
               <div className="flex items-center space-x-2">
                 <span className="w-2.5 h-2.5 bg-green-400 rounded-full animate-pulse"></span>
-                <span className="font-bold text-sm tracking-wide">ClimateAI // Instant Chat Dispatch</span>
+                <span className="font-bold text-sm tracking-wide">Service Expert AI // Instant Chat Dispatch</span>
               </div>
               <span className="text-xs text-slate-300 font-mono">24/7 ONLINE</span>
             </div>
