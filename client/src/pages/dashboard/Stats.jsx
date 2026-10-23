@@ -1,3 +1,109 @@
+// import React, { useState, useEffect } from 'react';
+
+// export default function Stats() {
+//   const [loading, setLoading] = useState(true);
+//   const [stats, setStats] = useState({
+//     totalLeads: 0,
+//     totalBookings: 0,
+//     conversionRate: '0%',
+//     revenueRecovered: '$0'
+//   });
+
+//   // 🚨 Wahi same test Vendor ID:
+//   const VENDOR_ID = "4c3d0f01-7bd2-4bcd-9130-3752cb68cf7e";
+//  const BASE_URL = "https://hvac-ai-automation.onrender.com/api/v1/dashboard";
+
+//   useEffect(() => {
+//     const fetchStats = async () => {
+//       try {
+//         setLoading(true);
+//         const response = await fetch(`${BASE_URL}/stats?vendorId=${VENDOR_ID}`);
+//         const data = await response.json();
+
+//         if (data.success) {
+//           setStats(data.stats);
+//         }
+//       } catch (error) {
+//         console.error("❌ Error fetching stats:", error);
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+
+//     fetchStats();
+//   }, []);
+
+//   if (loading) {
+//     return (
+//       <div className="flex items-center justify-center min-h-[400px]">
+//         <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+//       </div>
+//     );
+//   }
+
+//   return (
+//     <div className="p-6 space-y-6 animate-fadeIn">
+//       {/* Page Header */}
+//       <div>
+//         <h1 className="text-2xl font-bold text-slate-900 tracking-tight">Performance Overview</h1>
+//         <p className="text-sm text-slate-500 mt-1">Real-time metrics calculated from your AI voice and chat interactions.</p>
+//       </div>
+
+//       {/* 4 Core Stats Grid */}
+//       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+//         {/* Card 1: Total Leads */}
+//         <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+//           <div className="flex items-center justify-between">
+//             <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Total Leads</span>
+//             <span className="p-2 bg-slate-100 text-slate-600 rounded-lg text-xs font-bold">📞 Voice & 💬 Chat</span>
+//           </div>
+//           <div className="mt-4 flex items-baseline justify-between">
+//             <div className="text-3xl font-extrabold text-slate-900">{stats.totalLeads}</div>
+//           </div>
+//           <p className="text-xs text-slate-500 mt-2">Total customer conversations</p>
+//         </div>
+
+//         {/* Card 2: Booked Appointments */}
+//         <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+//           <div className="flex items-center justify-between">
+//             <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Jobs Booked</span>
+//             <span className="p-2 bg-blue-50 text-blue-600 rounded-lg text-xs font-bold">📅 Calendar</span>
+//           </div>
+//           <div className="mt-4 flex items-baseline justify-between">
+//             <div className="text-3xl font-extrabold text-slate-900">{stats.totalBookings}</div>
+//           </div>
+//           <p className="text-xs text-slate-500 mt-2">Confirmed dispatch appointments</p>
+//         </div>
+
+//         {/* Card 3: Conversion Rate */}
+//         <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+//           <div className="flex items-center justify-between">
+//             <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">AI Close Rate</span>
+//             <span className="p-2 bg-emerald-50 text-emerald-600 rounded-lg text-xs font-bold">⚡ Efficiency</span>
+//           </div>
+//           <div className="mt-4 flex items-baseline justify-between">
+//             <div className="text-3xl font-extrabold text-emerald-600">{stats.conversionRate}</div>
+//           </div>
+//           <p className="text-xs text-slate-500 mt-2">Leads turned into paying jobs</p>
+//         </div>
+
+//         {/* Card 4: Est. Revenue Recovered ( 🔥 The King Metric) */}
+//         <div className="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-xl p-6 shadow-lg relative overflow-hidden">
+//           <div className="flex items-center justify-between relative z-10">
+//             <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Est. Revenue Recovered</span>
+//             <span className="p-2 bg-blue-500/20 text-blue-400 rounded-lg text-xs font-bold">$350/job avg</span>
+//           </div>
+//           <div className="mt-4 flex items-baseline justify-between relative z-10">
+//             <div className="text-3xl font-extrabold text-white tracking-tight">{stats.revenueRecovered}</div>
+//           </div>
+//           <p className="text-xs text-slate-400 mt-2 relative z-10">Generated by ClimateAI automating bookings</p>
+//         </div>
+
+//       </div>
+//     </div>
+//   );
+// }
 import React, { useState, useEffect } from 'react';
 
 export default function Stats() {
@@ -11,7 +117,7 @@ export default function Stats() {
 
   // 🚨 Wahi same test Vendor ID:
   const VENDOR_ID = "4c3d0f01-7bd2-4bcd-9130-3752cb68cf7e";
- const BASE_URL = "https://hvac-ai-automation.onrender.com/api/v1/dashboard";
+  const BASE_URL = "https://hvac-ai-automation.onrender.com/api/v1/dashboard";
 
   useEffect(() => {
     const fetchStats = async () => {
@@ -35,71 +141,103 @@ export default function Stats() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-[400px]">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+      <div className="flex min-h-[400px] flex-col items-center justify-center gap-3">
+        <div className="h-7 w-7 animate-spin rounded-full border-2 border-slate-200 border-t-[#1C4F8A]"></div>
+        <span className="text-xs font-medium tracking-wide text-slate-500">Loading performance data…</span>
       </div>
     );
   }
 
   return (
-    <div className="p-6 space-y-6 animate-fadeIn">
+    <div className="min-h-full bg-[#F8FAFC] p-6 lg:p-8 space-y-6">
       {/* Page Header */}
-      <div>
-        <h1 className="text-2xl font-bold text-slate-900 tracking-tight">Performance Overview</h1>
-        <p className="text-sm text-slate-500 mt-1">Real-time metrics calculated from your AI voice and chat interactions.</p>
+      <div className="border-b border-slate-200 pb-5">
+        <div className="flex items-center gap-2">
+          <span className="h-px w-6 bg-[#861732]"></span>
+          <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#861732]">
+            Overview
+          </span>
+        </div>
+        <h1 className="mt-2 text-[22px] font-semibold tracking-tight text-[#12263F]">
+          Performance Overview
+        </h1>
+        <p className="mt-1 max-w-xl text-sm leading-relaxed text-slate-500">
+          Real-time metrics calculated from your AI voice and chat interactions.
+        </p>
       </div>
 
-      {/* 4 Core Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        
-        {/* Card 1: Total Leads */}
-        <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Total Leads</span>
-            <span className="p-2 bg-slate-100 text-slate-600 rounded-lg text-xs font-bold">📞 Voice & 💬 Chat</span>
+      <div className="grid grid-cols-1 gap-5 lg:grid-cols-12">
+        {/* Hero metric: Est. Revenue Recovered */}
+        <div className="flex flex-col justify-between rounded-lg bg-[#1C4F8A] p-7 text-white lg:col-span-5">
+          <div className="flex items-start justify-between gap-4">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/70">
+              Est. Revenue Recovered
+            </span>
+            <span className="rounded border border-white/25 px-2 py-0.5 text-[11px] font-medium tabular-nums text-white/90">
+              $350/job avg
+            </span>
           </div>
-          <div className="mt-4 flex items-baseline justify-between">
-            <div className="text-3xl font-extrabold text-slate-900">{stats.totalLeads}</div>
+          <div className="mt-10">
+            <div className="text-5xl font-semibold leading-none tracking-tight tabular-nums">
+              {stats.revenueRecovered}
+            </div>
+            <p className="mt-3 text-xs leading-relaxed text-white/70">
+              Generated by ClimateAI automating bookings
+            </p>
           </div>
-          <p className="text-xs text-slate-500 mt-2">Total customer conversations</p>
+          <div className="mt-8 h-[3px] w-12 bg-[#861732]"></div>
         </div>
 
-        {/* Card 2: Booked Appointments */}
-        <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Jobs Booked</span>
-            <span className="p-2 bg-blue-50 text-blue-600 rounded-lg text-xs font-bold">📅 Calendar</span>
+        {/* Supporting metrics */}
+        <div className="grid grid-cols-1 divide-y divide-slate-200 overflow-hidden rounded-lg border border-slate-200 bg-white sm:grid-cols-3 sm:divide-x sm:divide-y-0 lg:col-span-7">
+          {/* Total Leads */}
+          <div className="flex flex-col justify-between p-6">
+            <div>
+              <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+                Total Leads
+              </span>
+              <div className="mt-1 text-[11px] text-slate-400">Voice &amp; Chat</div>
+            </div>
+            <div className="mt-8">
+              <div className="text-4xl font-semibold leading-none tracking-tight tabular-nums text-[#12263F]">
+                {stats.totalLeads}
+              </div>
+              <p className="mt-3 text-xs text-slate-500">Total customer conversations</p>
+            </div>
           </div>
-          <div className="mt-4 flex items-baseline justify-between">
-            <div className="text-3xl font-extrabold text-slate-900">{stats.totalBookings}</div>
-          </div>
-          <p className="text-xs text-slate-500 mt-2">Confirmed dispatch appointments</p>
-        </div>
 
-        {/* Card 3: Conversion Rate */}
-        <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">AI Close Rate</span>
-            <span className="p-2 bg-emerald-50 text-emerald-600 rounded-lg text-xs font-bold">⚡ Efficiency</span>
+          {/* Jobs Booked */}
+          <div className="flex flex-col justify-between p-6">
+            <div>
+              <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+                Jobs Booked
+              </span>
+              <div className="mt-1 text-[11px] text-slate-400">Calendar</div>
+            </div>
+            <div className="mt-8">
+              <div className="text-4xl font-semibold leading-none tracking-tight tabular-nums text-[#12263F]">
+                {stats.totalBookings}
+              </div>
+              <p className="mt-3 text-xs text-slate-500">Confirmed dispatch appointments</p>
+            </div>
           </div>
-          <div className="mt-4 flex items-baseline justify-between">
-            <div className="text-3xl font-extrabold text-emerald-600">{stats.conversionRate}</div>
-          </div>
-          <p className="text-xs text-slate-500 mt-2">Leads turned into paying jobs</p>
-        </div>
 
-        {/* Card 4: Est. Revenue Recovered ( 🔥 The King Metric) */}
-        <div className="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-xl p-6 shadow-lg relative overflow-hidden">
-          <div className="flex items-center justify-between relative z-10">
-            <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Est. Revenue Recovered</span>
-            <span className="p-2 bg-blue-500/20 text-blue-400 rounded-lg text-xs font-bold">$350/job avg</span>
+          {/* AI Close Rate */}
+          <div className="flex flex-col justify-between p-6">
+            <div>
+              <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+                AI Close Rate
+              </span>
+              <div className="mt-1 text-[11px] text-slate-400">Efficiency</div>
+            </div>
+            <div className="mt-8">
+              <div className="text-4xl font-semibold leading-none tracking-tight tabular-nums text-[#1C4F8A]">
+                {stats.conversionRate}
+              </div>
+              <p className="mt-3 text-xs text-slate-500">Leads turned into paying jobs</p>
+            </div>
           </div>
-          <div className="mt-4 flex items-baseline justify-between relative z-10">
-            <div className="text-3xl font-extrabold text-white tracking-tight">{stats.revenueRecovered}</div>
-          </div>
-          <p className="text-xs text-slate-400 mt-2 relative z-10">Generated by ClimateAI automating bookings</p>
         </div>
-
       </div>
     </div>
   );
