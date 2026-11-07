@@ -100,7 +100,7 @@ export const startCronJobs = () => {
                 if (diffMinutes >= 1 && !appt.review_sent) {
                     console.log(`💬 Sending Customized Review Ask to ${name} for issue: "${issue}"`);
 
-                    const reviewMsg = `Hello ${name} \nOur technician recently resolved your HVAC issue regarding: *${issue}*. We hope everything is working perfectly now!\n${careTip}\n *Did you like our service?* Please reply with a 5-STAR rating (⭐⭐⭐⭐⭐) or tell us how we can improve. Your feedback means the world to us!`;
+                    const reviewMsg = `Hello  \nOur technician recently resolved your HVAC issue regarding: *${issue}*. We hope everything is working perfectly now!\n${careTip}\n *Did you like our service?* Please reply with a 5-STAR rating (⭐⭐⭐⭐⭐) or tell us how we can improve. Your feedback means the world to us!`;
 
                     const sentTo = await sendWhatsAppMsg(phone, reviewMsg);
                     if (sentTo) {
@@ -114,7 +114,7 @@ export const startCronJobs = () => {
                     const scheduleStatus = await checkFreeSlots(appt.vendor_id || "4c3d0f01-7bd2-4bcd-9130-3752cb68cf7e");
                     const slots = getThreeFreeSlots(scheduleStatus);
 
-                    const maintenanceMsg = `Hi ${name}! It feels like a month has already passed since we fixed your AC! Regular maintenance checks can save you up to 50% on major repair costs and keep your cooling bills low.\n *We checked our technician's live availability for tomorrow and have these FREE slots:* \n *[ ${slots.join(', ')} ]*\nWould you like me to lock in a routine inspection slot for you right now? Just reply with your preferred time (e.g. *"Book 11:30 AM"*) or call us anytime!`;
+                    const maintenanceMsg = `Hi ! It feels like a month has already passed since we fixed your AC! Regular maintenance checks can save you up to 50% on major repair costs and keep your cooling bills low.\n *We checked our technician's live availability for tomorrow and have these FREE slots:* \n *[ ${slots.join(', ')} ]*\nWould you like me to lock in a routine inspection slot for you right now? Just reply with your preferred time (e.g. *"Book 11:30 AM"*) or call us anytime!`;
 
                     const sentTo = await sendWhatsAppMsg(phone, maintenanceMsg);
 
